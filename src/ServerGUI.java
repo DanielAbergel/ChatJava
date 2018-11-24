@@ -18,7 +18,11 @@ public class ServerGUI extends JFrame implements ActionListener, WindowListener 
  // my server 
  private Server server; 
   
-  
+  /**
+   * the function open the server window  . 
+   * and gets the port from the user.
+   * @param port represent the port for the server . 
+   */
  // server constructor that receive the port to listen to for connection as parameter 
  ServerGUI(int port) { 
   super("Chat Server"); 
@@ -51,9 +55,12 @@ public class ServerGUI extends JFrame implements ActionListener, WindowListener 
   setSize(400, 600); 
   setVisible(true); 
  }   
+ /**
+  *  append message to the two JTextArea 
+  * position at the end 
+  * @param str represent the message to the TextArea
+  */
  
- // append message to the two JTextArea 
- // position at the end 
  void appendRoom(String str) { 
   chat.append(str); 
   chat.setCaretPosition(chat.getText().length() - 1); 
@@ -97,7 +104,7 @@ public class ServerGUI extends JFrame implements ActionListener, WindowListener 
   new ServerGUI(1500); 
  } 
  
- /*
+ /**
   * If the user click the X button to close the application 
   * I need to close the connection with the server to free the port 
   */ 
@@ -123,7 +130,7 @@ public class ServerGUI extends JFrame implements ActionListener, WindowListener 
  public void windowActivated(WindowEvent e) {} 
  public void windowDeactivated(WindowEvent e) {} 
  
- /*
+ /**
   * A thread to run the Server 
   */ 
  class ServerRunning extends Thread { 
