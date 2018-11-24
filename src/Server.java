@@ -208,9 +208,10 @@ public class Server {
 
 	/**
 	 *  To run as a console application just open a console window and:  
-	 * > java Server 
-	 * > java Server portNumber 
+	 * java Server 
+	 * java Server portNumber 
 	 * If the port number is not specified 1500 is used 
+	 * @param args represent input
 	 */  
 	public static void main(String[] args) { 
 		// start server on port 1500 unless a PortNumber is specified  
