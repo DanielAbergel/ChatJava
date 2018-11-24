@@ -1,6 +1,6 @@
 
 	import java.io.*; 
-	/*
+	/**
 	 * This class defines the different type of messages that will be exchanged between the 
 	 * Clients and the Server.  
 	 * When talking from a Java Client to a Java Server a lot easier to pass Java objects, no  

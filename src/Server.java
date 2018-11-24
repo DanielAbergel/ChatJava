@@ -3,7 +3,7 @@ import java.net.*;
 import java.text.SimpleDateFormat; 
 import java.util.*; 
 
-/*
+/**
  * The server that can be run both as a console application or a GUI 
  */ 
 public class Server { 
@@ -21,14 +21,21 @@ public class Server {
 	private boolean keepGoing; 
 
 
-	/*
+	/**
 	 *  server constructor that receive the port to listen to for connection as parameter 
 	 *  in console 
+	 *  @param port represent the server port number
 	 */ 
 	public Server(int port) { 
 		this(port, null); 
 	} 
 
+	/**
+	 *  server constructor that receive the port to listen to for connection as parameter 
+	 *  in console 
+	 *  @param port represent the server port number
+	 *  @param sg represent the serverGUI
+	 */ 
 	public Server(int port, ServerGUI sg) { 
 		// GUI or not 
 		this.sg = sg; 
@@ -39,7 +46,9 @@ public class Server {
 		// ArrayList for the Client list 
 		al = new ArrayList<ClientThread>(); 
 	} 
-
+	/**
+	 * this function starts the server 
+	 */
 	public void start() { 
 		keepGoing = true; 
 		/* create socket server and wait for connection requests */ 
@@ -80,6 +89,10 @@ public class Server {
 			display(msg); 
 		} 
 	} 
+	/**
+	 * this function get a server and close the input,output and socket
+	 * @param temp represents the current clientThread
+	 */
 	public void closing(ClientThread temp)
 	{
 		try { 
@@ -108,8 +121,9 @@ public class Server {
 			// nothing I can really do 
 		} 
 	} 
-	/*
-	 * Display an event (not a message) to the console or the GUI 
+	/**
+	 * Display an event (not a message) to the console or the GUI
+	 * @param msg represents the message that we want to show on the screen 
 	 */ 
 	private void display(String msg) { 
 		String time = sdf.format(new Date()) + " " + msg; 
@@ -118,6 +132,13 @@ public class Server {
 		else 
 			sg.appendEvent(time + "\n"); 
 	} 
+	/**
+	 * this function is for sending a private message from one client to another 
+	 * with the format of $username-space-message 
+	 * @param message  represent the message that we want to send
+	 * @param UserName represent the client that want to sent the message to the other client
+	 * @param Index represent the index of the other client
+	 */
 	private void sendPrivateMessage(String message , String UserName,int Index)
 	{
 		String time = sdf.format(new Date()); 
@@ -127,8 +148,11 @@ public class Server {
 	}
 
 
-	/*
-	 *  to broadcast a message to all Clients 
+	/**
+	 * this function is for sending message from one client to all the other clients or for
+	 * sending a private message with the format of $username-space-message 
+	 * @param message  represent the message that we want to send
+	 * @param UserName represent the client that want to sent a message
 	 */ 
 	private synchronized void broadcast(String message,String UserName) { 
 		// add HH:mm:ss and \n to the message 
@@ -182,7 +206,7 @@ public class Server {
 		} 
 	} 
 
-	/*
+	/**
 	 *  To run as a console application just open a console window and:  
 	 * > java Server 
 	 * > java Server portNumber 
@@ -228,7 +252,9 @@ public class Server {
 		// the date I connect 
 		String date; 
 
-		// Constructore 
+		/**
+		 * Constructore of ClientThread
+		 */  
 		ClientThread(Socket socket) { 
 			// a unique id 
 			id = ++uniqueId; 
@@ -300,7 +326,9 @@ public class Server {
 			close(); 
 		} 
 
-		// try to close everything 
+		/**
+		 *try to close everything
+		 */  
 		private void close() { 
 			// try to close the connection 
 			try { 
@@ -317,8 +345,9 @@ public class Server {
 			catch (Exception e) {} 
 		} 
 
-		/*
-		 * Write a String to the Client output stream 
+		/**
+		 * Write a String to the Client output stream
+		 * @param msg represent the message that the server want to send to the clients 
 		 */ 
 		private boolean writeMsg(String msg) { 
 			// if Client is still connected send the message to it 
