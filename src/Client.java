@@ -16,7 +16,7 @@ public class Client  {
 	private ClientGUI cg; 
 
 	// the server, the port and the username 
-	private String server, username; 
+	public String server, username; 
 	private int port; 
 
 	/**
