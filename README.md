@@ -26,3 +26,4 @@ First run: do a clone for the project, then there are two JAR Files --> server a
 - send a message to everyone, just type the message and press enter
 
 ### Enjoy
+1
