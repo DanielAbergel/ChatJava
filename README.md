@@ -2,7 +2,7 @@
 
 ## Description
 
-This project represents: Chat in Java.
+This project represents: Chat in Java
 
 Part of the chat is taken OPEN SOURCE.
  - Short explanation: This project is part of the University Communication course.
