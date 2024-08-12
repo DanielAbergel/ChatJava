@@ -5,7 +5,7 @@
 This project represents: Chat in Java.
 
 Part of the chat is taken OPEN SOURCE.
- - Short explanation: This project is part of the University Communication course.
+ - Short explanation: This project is part of the Univer12312312sity Communication course.
  ## Images and explantion : 
  ### Chats and Server after Login and click on WhoIsIn
  ![20](https://user-images.githubusercontent.com/44754325/50471409-1bb7a580-09bd-11e9-92a3-7d25e8db226a.png)
